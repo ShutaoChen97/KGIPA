@@ -13,7 +13,7 @@ Predicting peptide-protein interactions is essential for peptide drug developmen
 
 **Given the complexity and instability of individuals in configuring the environment, we strongly recommend that users use KEIPA 's online prediction Web server, which can be accessed through **http://bliulab.net/KEIPA/**.**
 
-![KEIPA](/imgs/KEIPA.png)
+![KEIPA](/imgs/Model.tif)
 **Fig. 1: Data preparation workflow and network architecture of IIDL-PepPI. a** Data preparation workflow of IIDL-PepPI, in which the public databases used include RCSB PDB, PDBe, and UniProt. **b** Network architecture of IIDL-PepPI for peptide-protein binary interaction prediction and binding residue recognition, including sequence representation, feature encoding, bi-attentional module, and decoding. Based on the biological sequence pragmatic analysis, the bi-attention module explicitly integrates features from the peptide and protein sides to distinguish different peptide-protein-specific interactions. **c** The progressive transfer learning architecture. The initial stage of IIDL-PepPI commences with pre-training peptide-protein binary interactions using sequence-level datasets and the coarse-grained learning of basic network parameters. Subsequently, in the second phase, we transfer the parameters of the basic network, replace the decoder, and conduct fine-grained fine-tuning of the model using residue-level dataset for precise prediction of peptide- and protein-binding residues in specific peptide-protein pairs.
 
 # 1 Installation
