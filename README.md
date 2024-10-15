@@ -22,8 +22,8 @@ Predicting peptide-protein interactions is essential for peptide drug developmen
 ## 1.1 Create conda environment
 
 ```
-conda create -n iidl python=3.10
-conda activate iidl
+conda create -n keipa python=3.10
+conda activate keipa
 ```
 
 ## 1.2 Requirements
@@ -186,25 +186,17 @@ If you want to retrain based on your private dataset, find the original IIDL-Pep
 
 
 # 3 Problem feedback
-If you have questions on how to use IIDL-PepPI (or PDB-BRE), feel free to raise questions in the [discussions section](https://github.com/ShutaoChen97/IIDL-PepPI/discussions). If you identify any potential bugs, feel free to raise them in the [issuetracker](https://github.com/ShutaoChen97/IIDL-PepPI/issues).
+If you have questions on how to use KEIPA, feel free to raise questions in the [discussions section](https://github.com/ShutaoChen97/KEIPA/discussions). If you identify any potential bugs, feel free to raise them in the [issuetracker](https://github.com/ShutaoChen97/KEIPA/issues).
 
-In addition, if you have any further questions about IIDL-PepPI, please feel free to contact us [**stchen@bliulab.net** or **shutao.chen@bit.edu.cn**]
+In addition, if you have any further questions about KEIPA, please feel free to contact us [**stchen@bliulab.net** or **shutao.chen@bit.edu.cn**]
 
 # 4 Citation
 
 If you find our work useful, please cite us at
 ```
-@article{chen2023pdb,
-  title={PDB-BRE: A ligand--protein interaction binding residue extractor based on Protein Data Bank},
-  author={Shutao Chen, Ke Yan, and Bin Liu},
-  journal={Proteins: Structure, Function, and Bioinformatics},
-  year={2023},
-  publisher={Wiley Online Library}
-}
-
-@article{chen2024protein,
-  title={Protein language pragmatic analysis and progressive transfer learning for profiling peptide-protein interactions},
-  author={Shutao Chen, Ke Yan, Xuelong Li, and Bin Liu},
+@article{chen2024knowledge,
+  title={Knowledge-Enhanced Interpretable Pragmatic Analysis for Uncovering Peptide-Protein Pairwise Non-Covalent Mechanisms},
+  author={Shutao Chen, Ke Yan, Xiangxiang Zeng, and Bin Liu},
   journal={submitted},
   year={2024},
   publisher={}
