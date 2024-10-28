@@ -38,7 +38,7 @@ def batch_feature(seqlist, featuredict, seq_max_length, mode):
         featuretensor = torch.as_tensor(np.array(featurelist)).long()
     return featuretensor
 
-# 序列整数编码
+# Sequence Integer Coding 
 def sequence_feature_extract(seqlist, seq_max_length):
     AminoAcidDic = dict(A=1, C=2, E=4, D=5, G=6, F=7, I=8, H=9, K=10, M=11, L=12, 
                         N=14, Q=15, P=16, S=17, R=18, T=20, W=21, V=22, Y=23, X=24)
@@ -58,7 +58,7 @@ def sequence_feature_extract(seqlist, seq_max_length):
     out = batch_feature(seqlist, sequence_feature_dict, seq_max_length, 'long')
     return out
 
-# 物理化学属性
+# Sequence Physicochemical Properties
 def physical_feature_extract(seqlist, seq_max_length):
     AminoAcidDic = dict(A=1, R=6, N=4, D=5, C=3, Q=4, E=5, G=2, H=6, I=1, L=1, 
                         K=6, M=1, F=1, P=1, S=4, T=4, W=2, Y=4, V=1, X=7)
@@ -78,36 +78,36 @@ def physical_feature_extract(seqlist, seq_max_length):
     out = batch_feature(seqlist, physical_feature_dict, seq_max_length, 'long')
     return out
 
-# 无序计算
+# Sequence Disorder Trend Extraction
 def iupred2a_feature_extract(uip, seqtype):
     ''' seqtype = 'Protein' or 'Peptide' '''
-    # 设置输入和输出文件路径
+    # Setting input and output file paths
     seq_dir = os.path.join(uip, seqtype + '_Seq.fasta')
     out_long_dir = os.path.join(uip, seqtype + '_IUPred2A_long.txt')
     out_short_dir = os.path.join(uip, seqtype + '_IUPred2A_short.txt')
     out_glob_dir = os.path.join(uip, seqtype + '_IUPred2A_glob.txt')
-    # 构建命令
+    # Build command
     base_command = os.path.join(IUPRED2A_FOLD, 'iupred2a.sh')
     command_1 = f'{base_command} {seq_dir} long {out_long_dir}'
     command_2 = f'{base_command} {seq_dir} short {out_short_dir}'
     command_3 = f'{base_command} {seq_dir} glob {out_glob_dir}'
-    # 启动子进程并行执行
+    # launch subprocesses for parallel execution
     processes = [
         subprocess.Popen(command_1, shell=True),
         subprocess.Popen(command_2, shell=True),
         subprocess.Popen(command_3, shell=True),
     ]
-    # 等待所有子进程完成
+    # Wait for all child processes to complete
     for process in processes:
         process.wait()
     time.sleep(10)
     
-    # 设置文件权限
+    # Setting file permissions
     for output_file in [out_long_dir, out_short_dir, out_glob_dir]:
         set_permissions(output_file)
     return None
 
-# 无序提取
+# Disordered Trend Result Extraction
 def read_iupred2a_result(filepath, types):
     with open(filepath, 'r') as f:
         lines = f.readlines()
@@ -134,9 +134,9 @@ def read_iupred2a_result(filepath, types):
         mat = mat.astype(float)
     return pro_seq, mat
 
-# 无序+PSSM整合
+# Sequence Dense Feature Extraction (Disordered features + PSSM)
 def dense_feature_extract(seqlist, uip, seqtype, seq_max_length):
-    # 无序
+    # Disordered features
     iupred2a_feature_extract(uip, seqtype)
     time.sleep(30)
     
@@ -153,7 +153,7 @@ def dense_feature_extract(seqlist, uip, seqtype, seq_max_length):
     if seqtype == 'Protein':
         dense_feature_pssm_dict = pssm_feature_extract(seqlist, uip)
     
-    # 结果合并及输出
+    # Dense feature merging and output
     dense_feature_dict = {}
     for tmp in range(len(dense_feature_iupred2a_dict)):
         seq_tmp = list(dense_feature_iupred2a_dict)[tmp]
@@ -194,18 +194,18 @@ def read_seq_and_index(filepath):
     f0.close()
     return info1, info2
 
-# 二级结构
+# Sequence Secondary Structure Feature Extraction
 def secondary_structure_feature_extract(seqlist, uip, seqtype, seq_max_length):
     seq_dir = os.path.join(uip, seqtype + '_Seq.fasta')
     out_dir = os.path.join(uip, seqtype + '.out')
     
-    # 构建命令
+    # Build command
     base_command = os.path.join(SCRATCH_FOLD, 'bin', 'SCRATCH.sh')
     ss_command = f'{base_command} {seq_dir} {out_dir}'
     process = subprocess.Popen(ss_command, shell=True)
     process.wait()
     
-    # 分析结果
+    # Secondary structure analysis
     AminoAcidDic = dict(A=1, C=2, E=4, D=5, G=6, F=7, I=8, H=9, K=10, M=11, L=12, 
                         N=14, Q=15, P=16, S=17, R=18, T=20, W=21, V=22, Y=23, X=24)
 
@@ -248,7 +248,7 @@ def secondary_structure_feature_extract(seqlist, uip, seqtype, seq_max_length):
     out = batch_feature(seqlist, ss_feature_dict, seq_max_length, 'long')
     return out
 
-# 预训练特征
+# Sequence Pre-training Feature Extraction
 def pretrain_feature_extract(seqlist, uip, seqtype, seq_max_length):    
     _, sequnique = read_seq_and_index(os.path.join(uip, seqtype + '_Seq.fasta'))
     
@@ -297,9 +297,9 @@ def pretrain_feature_extract(seqlist, uip, seqtype, seq_max_length):
     return out.to(torch.float32)
 
 
-# trRosetta提取结构特征
+# Sequence 3D Structure Feature Extraction
 def edge_feature_extract(seqlist, uip, seqtype, seq_max_length):
-    # trRosettaX不支持分析序列长度小于10的多肽，因此采用全填充的形式
+    # trRosetta does not support the analysis of peptides with sequence lengths of less than 10 and therefore uses the fully populated form
     if (seqtype == 'Peptide') and (len(seqlist[0]) < 10):
         edge_feature = np.zeros((seq_max_length, seq_max_length), dtype=int)
         edge_feature[:len(seqlist[0]), :len(seqlist[0])] = 1
