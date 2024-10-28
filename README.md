@@ -58,19 +58,20 @@ Two multiple sequence alignment tools and three databases are required:
 SCRATCH-1D 1.2
 IUPred2A \
 ncbi-blast 2.13.0
-ProtBERT \
+ProtT5 \
+trRosetta \
 ```
 
 Databases:
 ```
-nrdb90 (http://bliulab.net/sAMPpred-GAT/static/download/nrdb90.tar.gz)
+nrdb90 (http://bliulab.net/KEIPA/static/download/nrdb90.tar.gz)
 ```
 
 **nrdb90**: We have supplied the nrdb90 databases on our webserver. You need to put it into the `utils/` directoy and decompress it. 
 
 > **Note** that all the defalut paths of the tools and databases are shown in `config.yaml`. You can change the paths of the tools and databases by configuring `config.yaml` as you need. 
 
-`SCRATCH-1D`, `IUPred2A`, `ncbi-blast`, and `ProtBERT` are recommended to be configured as the system envirenment path. Your can follow these steps to install them:
+`SCRATCH-1D`, `IUPred2A`, `ncbi-blast`, and `ProtT5` are recommended to be configured as the system envirenment path. Your can follow these steps to install them:
 
 ### 1.3.1 How to install SCRATCH-1D
 Download (For linux, about 6.3GB. More information, please see **https://download.igb.uci.edu/**)
@@ -133,26 +134,18 @@ psiblast -h
 > **Note:** The purpose of IIDL-PepPI with the help of ncbi-blast is to extract the position-specific scoring matrix (PSSM). It should be noted that for sequences that cannot be effectively aligned, the PSSM is further extracted by blosum62 (which can be found in `utils/blosum62.txt`).
 
 
-### 1.3.4 How to install ProtBERT
-Download and install (More information, please see **https://huggingface.co/Rostlab/prot_bert** or **https://github.com/agemagician/ProtTrans**)
+### 1.3.4 How to install ProtT5 (ProtT5-XL-UniRef50)
+Download and install (More information, please see **https://github.com/agemagician/ProtTrans** or **https://zenodo.org/record/4644188**, about 5.3GB)
 
 ```
-wget https://zenodo.org/records/4633691/files/prot_bert.zip
+wget https://zenodo.org/records/4644188/files/prot_t5_xl_uniref50.zip?download=1
 ```
 
-or
-
-```
-git lfs install
-git clone https://huggingface.co/Rostlab/prot_bert
-```
-
-
-## 1.4 Inatsll IIDL-PepPI
+## 1.4 Inatsll KEIPA
 To install from the development branch run
 ```
-git clone git@github.com:ShutaoChen97/IIDL-PepPI.git
-cd IIDL-PepPI/utils
+git clone git@github.com:ShutaoChen97/KEIPA.git
+cd KEIPA/utils
 tar -xvzf nrdb90.tar.gz
 cd ..
 ```
