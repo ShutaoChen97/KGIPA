@@ -130,7 +130,7 @@ source ~/.bashrc
 psiblast -h
 ```
 
-> **Note:** The purpose of IIDL-PepPI with the help of ncbi-blast is to extract the position-specific scoring matrix (PSSM). It should be noted that for sequences that cannot be effectively aligned, the PSSM is further extracted by blosum62 (which can be found in `utils/blosum62.txt`).
+> **Note:** The purpose of KEIPA with the help of ncbi-blast is to extract the position-specific scoring matrix (PSSM). It should be noted that for sequences that cannot be effectively aligned, the PSSM is further extracted by blosum62 (which can be found in [`blosum62.txt`](http://bliulab.net/KEIPA/static/download/blosum62.txt)).
 
 
 ### 1.3.4 How to install ProtT5 (ProtT5-XL-UniRef50)
