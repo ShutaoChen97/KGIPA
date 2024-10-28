@@ -166,24 +166,20 @@ cd KEIPA/
 # 2 Usage
 It takes 2 steps to predict peptide-protein binary interaction and peptide-protein-specific binding residues:
 
-(1) Replace the default peptide sequence in the `example/example_peptide_ 1.fasta` file with your peptide sequence (FASTA format). Similarly, replace the default protein sequence in the `example/example_protein_ 1.fasta` file with your protein sequence (FASTA format). If you don't want to do this, you can also test your own peptide-protein pairs by modifying the two sequence file paths passed in by the `test.sh` script (the two parameters are `-pep_fasta` for peptide and `-pro_fasta` for protein, respectively).
+(1) Replace the default peptide sequence in the `example/Peptide_Seq.fasta` file with your peptide sequence (FASTA format). Similarly, replace the default protein sequence in the `example/Protein_Seq.fasta` file with your protein sequence (FASTA format). If you don't want to do this, you can also test your own peptide-protein pairs by modifying the paths to the files passed in by the `run_predictor.py` script (the parameter is `-uip`, respectively).
 
-(2) Then, run `test.sh` to make multi-level prediction, including binary interaction prediction and combined residue recognition. 
-It should be noted that `test.sh` automatically calls the scripts `generate_peptide_features.py`, `generate_protein_features.py`, and `generate_pssm.py` to generate the multi-source isomerization characteristics of peptides and proteins.
+(2) Then, run `run_predictor.py` to make prediction, including **pairwise non-covalent interaction** prediction and **non-covalent bond type** identification. It should be noted that `run_predictor.py` automatically calls the scripts `FeatureExtract.py`, and `PSSMExtract.py` to generate the multi-source isomerization features of peptides and proteins.
 ```
-bash test.sh
+conda activate keipa
+python run_predictor.py -uip /example
 ```
- 
-> **Note** you can running `python test.py -h` to learn the meaning of each parameter.
 
-If you want to retrain based on your private dataset, find the original IIDL-PepPI model in `model/IIDL-PepPI.py`. The IIDL-PepPI source code we wrote is based on the Pytorch implementation and can be easily imported by instantiating it.
-
-
+If you want to retrain based on your private dataset, find the original KEIPA model in `model.py`. The KEIPA source code we wrote is based on the Pytorch implementation and can be easily imported by instantiating it.
 
 # 3 Problem feedback
 If you have questions on how to use KEIPA, feel free to raise questions in the [discussions section](https://github.com/ShutaoChen97/KEIPA/discussions). If you identify any potential bugs, feel free to raise them in the [issuetracker](https://github.com/ShutaoChen97/KEIPA/issues).
 
-In addition, if you have any further questions about KEIPA, please feel free to contact us [**stchen@bliulab.net** or **shutao.chen@bit.edu.cn**]
+In addition, if you have any further questions about KEIPA, please feel free to contact us [**stchen@bliulab.net**]
 
 # 4 Citation
 
