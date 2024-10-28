@@ -110,7 +110,7 @@ Finally, test the installation of IUPred2A
 cd <INSTALL_DIR>
 python3 iupred2a P53_HUMAN.seq long
 ```
-**In addition, users need to move the iupred2a.sh script in `/tools/iupred2a/` to the IUPred2A installation path for KEIPA to call.**
+**In addition, users need to move the `iupred2a.sh` script in `/tools/iupred2a/` to the IUPred2A installation path for KEIPA to call.**
 
 ### 1.3.3 How to install ncbi-blast
 Download (For x64-linux, about 220M. More information, please see **https://blast.ncbi.nlm.nih.gov/doc/blast-help/downloadblastdata.html**)
@@ -138,26 +138,29 @@ Download and install (More information, please see **https://github.com/agemagic
 
 ```
 wget https://zenodo.org/records/4644188/files/prot_t5_xl_uniref50.zip?download=1
+unzip prot_t5_xl_uniref50.zip
 ```
+
+
+### 1.3.5 How to install trRosetta
+Download `trRosettaX.tar.bz2` from **https://yanglab.qd.sdu.edu.cn/trRosetta/download/** (about 94MB)
+
+```
+tar -xvjf trRosettaX.tar.bz2
+cd trRosettaX/
+```
+
+Then, refer to the `README` file to install and configure it. **In addition, users need to move the `generate_msa.sh` and `predict.sh` scripts in `/tools/trRosettaX/` to the trRosettaX installation path for KEIPA to call.**
+
 
 ## 1.4 Inatsll KEIPA
 To install from the development branch run
 ```
 git clone git@github.com:ShutaoChen97/KEIPA.git
-cd KEIPA/utils
-tar -xvzf nrdb90.tar.gz
-cd ..
+cd KEIPA/
 ```
 
-Besides, **due to the limit of 2G file size uploaded by Git LFS**, the comparison file used by IIDL-PepPI to reduce the dimensionality of pre-training (ProtBERT) features is available through our [IIDL-PepPI online Web server](http://bliulab.net/IIDL-PepPI) (about 3G).
-```
-wget http://bliulab.net/IIDL-PepPI/static/download/protein_webserver.pkl
-mv protein_webserver.pkl saved_models/protbert_feature_before_pca/
-```
-
-
-
-**Finally, configure the Defalut path of the above tool and the database in `config.yaml`. You can change the path of the tool and database by configuring `config.yaml` as needed.**
+**Finally, configure the defalut path of the above tool and the database in `conf.py`. You can change the path of the tool and database by configuring `conf.py` as needed.**
 
 
 # 2 Usage
