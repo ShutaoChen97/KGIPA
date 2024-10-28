@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on 2022-11-09 20:58
-
-@author: Shutao Chen
-"""
 # %%
 import time
 import argparse
@@ -81,7 +75,7 @@ def get_protein_blosum(proteinseq):
     protein_lst = []
     for aa in proteinseq:
         aa = aa.upper()
-        # 这个地方要检查一下sequence中的氨基酸是不是都为标准氨基酸！
+        # Check the amino acids in the sequence are all standard amino acids
         if aa not in blosum62.keys():
             aa = 'X'
         protein_lst.append(blosum62[aa])
