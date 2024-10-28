@@ -110,7 +110,7 @@ Finally, test the installation of IUPred2A
 cd <INSTALL_DIR>
 python3 iupred2a P53_HUMAN.seq long
 ```
-**In addition, users need to move the iupred2a.sh script in tools/iupred2a/ to the IUPred2A installation path for KEIPA to call.**
+**In addition, users need to move the iupred2a.sh script in `/tools/iupred2a/` to the IUPred2A installation path for KEIPA to call.**
 
 ### 1.3.3 How to install ncbi-blast
 Download (For x64-linux, about 220M. More information, please see **https://blast.ncbi.nlm.nih.gov/doc/blast-help/downloadblastdata.html**)
