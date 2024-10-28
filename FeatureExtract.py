@@ -2,12 +2,12 @@
 from utils import *
 import concurrent.futures
 
-# 总的蛋白质特征提取脚本
+# Protein feature extraction
 def protein_feature_extract(prolist, uip):
-    # 预先设定蛋白质的最长序列长度为800
+    # Pre-set the sequence length threshold for proteins to 800
     protein_max_length = 800
     
-    # 定义各个特征提取的函数任务
+    # Define the function task for each feature extraction
     def extract_features():
         with concurrent.futures.ThreadPoolExecutor() as executor:
             future_seq_pro = executor.submit(sequence_feature_extract, prolist, protein_max_length)
@@ -17,7 +17,7 @@ def protein_feature_extract(prolist, uip):
             future_pretrain_pro = executor.submit(pretrain_feature_extract, prolist, uip, 'Protein', protein_max_length)
             future_edge_pro = executor.submit(edge_feature_extract, prolist, uip, 'Protein', protein_max_length)
             
-            # 等待所有特征提取完成并获取结果
+            # Wait for all features to be extracted and get results
             x_seq_pro = future_seq_pro.result()
             x_physical_pro = future_physical_pro.result()
             x_dense_pro = future_dense_pro.result()
@@ -29,12 +29,12 @@ def protein_feature_extract(prolist, uip):
     
     return extract_features()
 
-# 总的多肽特征提取脚本
+# Peptide feature extraction
 def peptide_feature_extract(peplist, uip):
-    # 预先设定蛋白质的最长序列长度为800
+    # Pre-set the sequence length threshold for proteins to 50
     peptide_max_length = 50
     
-    # 定义各个特征提取的函数任务
+    # Define the function task for each feature extraction
     def extract_features():
         with concurrent.futures.ThreadPoolExecutor() as executor:
             future_seq_pep = executor.submit(sequence_feature_extract, peplist, peptide_max_length)
@@ -44,7 +44,7 @@ def peptide_feature_extract(peplist, uip):
             future_pretrain_pep = executor.submit(pretrain_feature_extract, peplist, uip, 'Peptide', peptide_max_length)
             future_edge_pep = executor.submit(edge_feature_extract, peplist, uip, 'Peptide', peptide_max_length)
             
-            # 等待所有特征提取完成并获取结果
+            # Wait for all features to be extracted and get results
             x_seq_pep = future_seq_pep.result()
             x_physical_pep = future_physical_pep.result()
             x_dense_pep = future_dense_pep.result()
@@ -56,14 +56,14 @@ def peptide_feature_extract(peplist, uip):
     
     return extract_features()
 
-# 并行提取蛋白质和多肽的特征
+# Parallel extraction of protein and peptide features
 def parallel_feature_extract(pro_seq_list, pep_seq_list, uip):
     with concurrent.futures.ThreadPoolExecutor() as executor:
-        # 并行调用蛋白质和多肽特征提取
+        # Parallel calls for protein and peptide feature extraction
         future_protein = executor.submit(protein_feature_extract, pro_seq_list, uip)
         future_peptide = executor.submit(peptide_feature_extract, pep_seq_list, uip)
         
-        # 获取结果
+        # Getting results
         protein_features = future_protein.result()
         peptide_features = future_peptide.result()
 
