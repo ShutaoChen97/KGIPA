@@ -31,20 +31,19 @@ The main dependencies used in this project are as follows (for more information,
 
 ```
 python  3.10
-biopython 1.81
-huggingface-hub 0.19.4
-numpy 1.26.2
-pandas 2.1.3
-scikit-learn 1.3.2
-scipy 1.11.4
-tokenizers 0.15.0
-torch 2.1.1+cu118
-torchaudio 2.1.1+cu118
-tqdm 4.66.1
-transformers 4.35.2
+biopython 1.84
+huggingface-hub 0.26.1
+numpy 2.1.2
+transformers 4.46.0
+tokenizers 0.20.1
+sentencepiece 0.2.0
+torch 2.5.0+cpu
+torchaudio 2.5.0+cpu
+torchvision 0.20.0+cpu
+torch-geometric 2.6.1
 ```
 
-> **Note** If you have an available GPU, the accelerated IIDL-PepPI can be used to predict peptide-protein binary interactions and pair-specific binding residues. Change the URL below to reflect your version of the cuda toolkit (cu118 for cuda=11.6 and cuda 11.8, cu121 for cuda 12.1). However, do not provide a number greater than your installed cuda toolkit version!
+> **Note** If you have an available GPU, the accelerated KEIPA can be used to predict peptide-protein binary interactions and pair-specific binding residues. Change the URL below to reflect your version of the cuda toolkit (cu118 for cuda=11.6 and cuda 11.8, cu121 for cuda 12.1). However, do not provide a number greater than your installed cuda toolkit version!
 > 
 > ```
 > pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu118
@@ -53,7 +52,7 @@ transformers 4.35.2
 > For more information on other cuda versions, see the [pytorch installation documentation](https://pytorch.org/).
 
 ## 1.3 Tools
-Two multiple sequence alignment tools and three databases are required: 
+Feature extraction tools and databases on which KEIPA relies: 
 ```
 SCRATCH-1D 1.2
 IUPred2A \
@@ -62,16 +61,16 @@ ProtT5 \
 trRosetta \
 ```
 
-Databases:
+Databases and model:
 ```
-nrdb90 (http://bliulab.net/KEIPA/static/download/nrdb90.tar.gz)
+nrdb90 [ncbi-blast Database](http://bliulab.net/KEIPA/static/download/nrdb90.tar.gz)
+uniclust30_2018_08 [HHsuite sequence Database](http://wwwuser.gwdg.de/~compbiol/uniclust/2018_08)
+model_res2net_202108 [Pre-trained network models of trRosetta](https://yanglab.nankai.edu.cn/trRosetta/download)
 ```
 
-**nrdb90**: We have supplied the nrdb90 databases on our webserver. You need to put it into the `utils/` directoy and decompress it. 
+**The default paths to all tools and databases are shown in config.yaml. You can change the paths to the tools and databases as needed by configuring conf.py.**
 
-> **Note** that all the defalut paths of the tools and databases are shown in `config.yaml`. You can change the paths of the tools and databases by configuring `config.yaml` as you need. 
-
-`SCRATCH-1D`, `IUPred2A`, `ncbi-blast`, and `ProtT5` are recommended to be configured as the system envirenment path. Your can follow these steps to install them:
+`SCRATCH-1D`, `IUPred2A`, `ncbi-blast`, `ProtT5`, and `trRosetta` are recommended to be configured as the system envirenment path. Your can follow these steps to install them:
 
 ### 1.3.1 How to install SCRATCH-1D
 Download (For linux, about 6.3GB. More information, please see **https://download.igb.uci.edu/**)
@@ -99,7 +98,7 @@ cd <INSTALL_DIR>/doc
 
 
 ### 1.3.2 How to install IUPred2A
-For download and installation of IUPred2A, please refer to **https://iupred2a.elte.hu/download_new**. It should be noted that this automation service is **only applicable to academic users.** For business users, please contact the original authors for authorization.
+For download and installation of IUPred2A, please refer to **https://iupred2a.elte.hu/download_new**. It should be noted that this automation service is **only applicable to academic users.** For business users, please contact the original authors for authorization. 
 
 After obtaining the IUPred2A software package, decompress it.
 ```
@@ -111,7 +110,7 @@ Finally, test the installation of IUPred2A
 cd <INSTALL_DIR>
 python3 iupred2a P53_HUMAN.seq long
 ```
-
+**In addition, users need to move the iupred2a.sh script in tools/iupred2a/ to the IUPred2A installation path for KEIPA to call.**
 
 ### 1.3.3 How to install ncbi-blast
 Download (For x64-linux, about 220M. More information, please see **https://blast.ncbi.nlm.nih.gov/doc/blast-help/downloadblastdata.html**)
