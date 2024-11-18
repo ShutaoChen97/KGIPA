@@ -2,8 +2,8 @@
 
 <div align="center">
   
-  [![GitHub stars](https://badgen.net/github/stars/ShutaoChen97/KEIPA)](https://GitHub.com/ShutaoChen97/KEIPA/stargazers/)
-  [![GitHub forks](https://badgen.net/github/forks/ShutaoChen97/KEIPA/)](https://GitHub.com/ShutaoChen97/KEIPA/network/)
+  [![GitHub stars](https://badgen.net/github/stars/ShutaoChen97/KEIPA?_t=1681000000)](https://GitHub.com/ShutaoChen97/KEIPA/stargazers/)
+  [![GitHub forks](https://badgen.net/github/forks/ShutaoChen97/KEIPA/?_t=1681000000)](https://GitHub.com/ShutaoChen97/KEIPA/network/)
   [![GitHub issues](https://badgen.net/github/issues/ShutaoChen97/KEIPA/?color=red)](https://GitHub.com/ShutaoChen97/KEIPA/issues/)
   [![GitHub license](https://img.shields.io/github/license/ShutaoChen97/KEIPA.svg)](https://github.com/ShutaoChen97/KEIPA/blob/master/LICENSE)
 
