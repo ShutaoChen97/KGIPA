@@ -1,4 +1,4 @@
-name: keipa
+name: kgipa
 channels:
   - defaults
 dependencies:
@@ -90,4 +90,4 @@ dependencies:
       - urllib3==2.2.3
       - wcwidth==0.2.13
       - yarl==1.16.0
-prefix: /home/bionlp/anaconda3/envs/keipa
+prefix: /home/bionlp/anaconda3/envs/kgipa
