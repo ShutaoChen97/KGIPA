@@ -9,7 +9,7 @@ import numpy as np
 
 from conf import *
 from FeatureExtract import *
-from model import KEIPA
+from model import KGIPA
 
 device = torch.device("cpu")
 
@@ -20,12 +20,12 @@ def SeqMask(seqlen_list, seqlen_lim, device):
     seq_mask = seq_mask.to(device)
     return seq_mask
        
-def KEIPA_Predict(x_seq_pep, x_ss_pep, x_physical_pep, x_dense_pep, x_pretrain_pep, 
+def KGIPA_Predict(x_seq_pep, x_ss_pep, x_physical_pep, x_dense_pep, x_pretrain_pep, 
                   x_seq_pro, x_ss_pro, x_physical_pro, x_dense_pro, x_pretrain_pro, 
                   x_edge_pep, x_edge_pro, peplen, prolen):
-    # Loading the trained KEIPA model and its parameters
-    model = KEIPA().to(device)
-    model_name = os.path.join(MODEL_FOLD, 'KEIPA_Saved_Model.pth')
+    # Loading the trained KGIPA model and its parameters
+    model = KGIPA().to(device)
+    model_name = os.path.join(MODEL_FOLD, 'KGIPA_Saved_Model.pth')
     model.load_state_dict(torch.load(model_name, map_location='cpu', weights_only=True))
     
     '''mask generate'''
@@ -89,8 +89,8 @@ if __name__ == '__main__':
     pep_len = [len(pep_seq_list[0])]
     pro_len = [len(pro_seq_list[0])]
     
-    # KEIPA prediction
-    ouputs_type, ouputs_all, ouputs_type_pep, ouputs_type_pro, ouputs_all_pep, ouputs_all_pro = KEIPA_Predict(\
+    # KGIPA prediction
+    ouputs_type, ouputs_all, ouputs_type_pep, ouputs_type_pro, ouputs_all_pep, ouputs_all_pro = KGIPA_Predict(\
         x_seq_pep, x_ss_pep, x_physical_pep, x_dense_pep, x_pretrain_pep, 
         x_seq_pro, x_ss_pro, x_physical_pro, x_dense_pro, x_pretrain_pro, 
         x_edge_pep, x_edge_pro, pep_len, pro_len)
