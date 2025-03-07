@@ -1,29 +1,29 @@
-# KEIPA
+# KGIPA
 
 <div align="center">
   
-  [![GitHub stars](https://badgen.net/github/stars/ShutaoChen97/KEIPA?_t=1681000000)](https://GitHub.com/ShutaoChen97/KEIPA/stargazers/)
-  [![GitHub forks](https://badgen.net/github/forks/ShutaoChen97/KEIPA/?_t=1681000000)](https://GitHub.com/ShutaoChen97/KEIPA/network/)
-  [![GitHub issues](https://badgen.net/github/issues/ShutaoChen97/KEIPA/?color=red)](https://GitHub.com/ShutaoChen97/KEIPA/issues/)
-  [![GitHub license](https://img.shields.io/github/license/ShutaoChen97/KEIPA.svg)](https://github.com/ShutaoChen97/KEIPA/blob/master/LICENSE)
+  [![GitHub stars](https://badgen.net/github/stars/ShutaoChen97/KGIPA?_t=1681000000)](https://GitHub.com/ShutaoChen97/KGIPA/stargazers/)
+  [![GitHub forks](https://badgen.net/github/forks/ShutaoChen97/KGIPA/?_t=1681000000)](https://GitHub.com/ShutaoChen97/KGIPA/network/)
+  [![GitHub issues](https://badgen.net/github/issues/ShutaoChen97/KGIPA/?color=red)](https://GitHub.com/ShutaoChen97/KGIPA/issues/)
+  [![GitHub license](https://img.shields.io/github/license/ShutaoChen97/KGIPA.svg)](https://github.com/ShutaoChen97/KGIPA/blob/master/LICENSE)
 
 </div>
 
-Predicting peptide-protein interactions is essential for peptide drug development and protein function research. Recent deep learning-based approaches have shown promising performance, but two challenges remain: how to fully represent and integrate multi-source information such as peptide and protein sequences and structures, and provide practical biological annotation of their interactions, and how to explicitly model and learn residue-level pairwise interactions between peptides and proteins to achieve better predictive performance and interpretability. Here, we propose a **knowledge-enhanced interpretable pragmatic analysis method (KEIPA)**. KEIPA initially integrates multi-source information of peptides and proteins through intra-linguistic contextual representations. It then leverages extra-linguistic contextual representations to construct representation maps of peptide-protein pairs, enabling explicit learning of residue-level pairwise non-covalent interactions. Besides, the knowledge-enhanced module incorporates prior knowledge to promote coordinated interaction between various non-covalent bonds. Finally, using a multi-task learning framework, KEIPA simultaneously predicts peptide-protein non-covalent interactions and their specific non-covalent bond types, enabling biological sequence pragmatic analysis. Experiments on multiple independent test datasets demonstrate that KEIPA achieves superior overall performance compared to state-of-the-art baseline methods and provides interpretable insights into the prediction results. Furthermore, evaluations in other similar biological tasks indicate that KEIPA's method for biological sequence pragmatic analysis is highly generalizable, **establishing a new paradigm for AI-driven life science research**.
+Understanding the mechanisms underlying peptide-protein interactions is crucial for uncovering cellular signaling processes and advancing targeted therapeutic development. Despite extensive research, accurately predicting peptide-protein interactions and providing site-specific biological annotations remains challenging due to the diversity of molecular modalities and the complexity of their associations. Here, we propose **interpretable pragmatic analysis with knowledge-guided (KGIPA)**, a method that applies the linguistic concept of pragmatic analysis to life sciences research. KGIPA first integrates multi-modal features of single molecules through intra-linguistic contextual representation and constructs residue-level interaction maps of peptide-protein pairs through extra-linguistic contextual representation. Furthermore, the knowledge-guided module incorporates prior knowledge to promote coordinated interactions across various non-covalent bond types. Finally, using a multi-task learning framework, KGIPA simultaneously predicts residue-level pairwise non-covalent interactions and their specific non-covalent bond types, enabling biological sequence pragmatic analysis. Experiments on multiple independent test datasets demonstrate that KGIPA achieves superior overall performance compared to state-of-the-art baseline methods and provides interpretable insights into the prediction results. Moreover, evaluations in other similar biological tasks indicate that KGIPA's method for biological sequence pragmatic analysis is highly generalizable, **establishing a new paradigm for AI-driven life science research**.
 
-**Given the complexity and instability of individuals in configuring the environment, we strongly recommend that users use KEIPA 's online prediction Web server, which can be accessed through **http://bliulab.net/KEIPA/**.**
+**Given the complexity and instability of individuals in configuring the environment, we strongly recommend that users use KGIPA's online prediction Web server, which can be accessed through **http://bliulab.net/KGIPA/**.**
 
 ![Model](/imgs/Model.png)
 
-**Fig. 1: The model architecture of KEIPA.** KEIPA is a neural network model designed to achieve biological sequence pragmatic analysis, and it can be mainly divided into two parts: intra-linguistic and extra-linguistic contextual representation.
+**Fig. 1: The model architecture of KGIPA.** KGIPA is a neural network model designed to achieve biological sequence pragmatic analysis, and it can be mainly divided into two parts: intra-linguistic and extra-linguistic contextual representation.
 
 # 1 Installation
 
 ## 1.1 Create conda environment
 
 ```
-conda create -n keipa python=3.10
-conda activate keipa
+conda create -n kgipa python=3.10
+conda activate kgipa
 ```
 
 ## 1.2 Requirements
@@ -43,7 +43,7 @@ torchvision 0.20.0+cpu
 torch-geometric 2.6.1
 ```
 
-> **Note** If you have an available GPU, the accelerated KEIPA can be used to predict peptide-protein binary interactions and pair-specific binding residues. Change the URL below to reflect your version of the cuda toolkit (cu118 for cuda=11.6 and cuda 11.8, cu121 for cuda 12.1). However, do not provide a number greater than your installed cuda toolkit version!
+> **Note** If you have an available GPU, the accelerated KGIPA can be used to predict peptide-protein binary interactions and pair-specific binding residues. Change the URL below to reflect your version of the cuda toolkit (cu118 for cuda=11.6 and cuda 11.8, cu121 for cuda 12.1). However, do not provide a number greater than your installed cuda toolkit version!
 > 
 > ```
 > pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu118
@@ -52,7 +52,7 @@ torch-geometric 2.6.1
 > For more information on other cuda versions, see the [pytorch installation documentation](https://pytorch.org/).
 
 ## 1.3 Tools
-Feature extraction tools and databases on which KEIPA relies: 
+Feature extraction tools and databases on which KGIPA relies: 
 ```
 SCRATCH-1D 1.2
 IUPred2A \
@@ -63,7 +63,7 @@ trRosetta \
 
 Databases and model:
 ```
-nrdb90 [ncbi-blast Database](http://bliulab.net/KEIPA/static/download/nrdb90.tar.gz)
+nrdb90 [ncbi-blast Database](http://bliulab.net/KGIPA/static/download/nrdb90.tar.gz)
 uniclust30_2018_08 [HHsuite sequence Database](http://wwwuser.gwdg.de/~compbiol/uniclust/2018_08)
 model_res2net_202108 [Pre-trained network models of trRosetta](https://yanglab.nankai.edu.cn/trRosetta/download)
 ```
@@ -110,7 +110,7 @@ Finally, test the installation of IUPred2A
 cd <INSTALL_DIR>
 python3 iupred2a P53_HUMAN.seq long
 ```
-**In addition, users need to move the `iupred2a.sh` script in `/tools/iupred2a/` to the IUPred2A installation path for KEIPA to call.**
+**In addition, users need to move the `iupred2a.sh` script in `/tools/iupred2a/` to the IUPred2A installation path for KGIPA to call.**
 
 ### 1.3.3 How to install ncbi-blast
 Download (For x64-linux, about 220M. More information, please see **https://blast.ncbi.nlm.nih.gov/doc/blast-help/downloadblastdata.html**)
@@ -130,7 +130,7 @@ source ~/.bashrc
 psiblast -h
 ```
 
-> **Note:** The purpose of KEIPA with the help of ncbi-blast is to extract the position-specific scoring matrix (PSSM). It should be noted that for sequences that cannot be effectively aligned, the PSSM is further extracted by blosum62 (which can be found in [`blosum62.txt`](http://bliulab.net/KEIPA/static/download/blosum62.txt)).
+> **Note:** The purpose of KGIPA with the help of ncbi-blast is to extract the position-specific scoring matrix (PSSM). It should be noted that for sequences that cannot be effectively aligned, the PSSM is further extracted by blosum62 (which can be found in [`blosum62.txt`](http://bliulab.net/KGIPA/static/download/blosum62.txt)).
 
 
 ### 1.3.4 How to install ProtT5 (ProtT5-XL-UniRef50)
@@ -150,14 +150,14 @@ tar -xvjf trRosettaX.tar.bz2
 cd trRosettaX/
 ```
 
-Then, refer to the `README` file to install and configure it. **In addition, users need to move the `generate_msa.sh` and `predict.sh` scripts in `/tools/trRosettaX/` to the trRosettaX installation path for KEIPA to call.**
+Then, refer to the `README` file to install and configure it. **In addition, users need to move the `generate_msa.sh` and `predict.sh` scripts in `/tools/trRosettaX/` to the trRosettaX installation path for KGIPA to call.**
 
 
-## 1.4 Inatsll KEIPA
+## 1.4 Inatsll KGIPA
 To install from the development branch run
 ```
-git clone git@github.com:ShutaoChen97/KEIPA.git
-cd KEIPA/
+git clone git@github.com:ShutaoChen97/KGIPA.git
+cd KGIPA/
 ```
 
 **Finally, configure the defalut path of the above tool and the database in `conf.py`. You can change the path of the tool and database by configuring `conf.py` as needed.**
@@ -170,16 +170,16 @@ It takes 2 steps to predict peptide-protein binary interaction and peptide-prote
 
 (2) Then, run `run_predictor.py` to make prediction, including **pairwise non-covalent interaction** prediction and **non-covalent bond type** identification. It should be noted that `run_predictor.py` automatically calls the scripts `FeatureExtract.py`, and `PSSMExtract.py` to generate the multi-source isomerization features of peptides and proteins.
 ```
-conda activate keipa
+conda activate kgipa
 python run_predictor.py -uip /example
 ```
 
-If you want to retrain based on your private dataset, find the original KEIPA model in `model.py`. The KEIPA source code we wrote is based on the Pytorch implementation and can be easily imported by instantiating it.
+If you want to retrain based on your private dataset, find the original KGIPA model in `model.py`. The KGIPA source code we wrote is based on the Pytorch implementation and can be easily imported by instantiating it.
 
 # 3 Problem feedback
-If you have questions on how to use KEIPA, feel free to raise questions in the [discussions section](https://github.com/ShutaoChen97/KEIPA/discussions). If you identify any potential bugs, feel free to raise them in the [issuetracker](https://github.com/ShutaoChen97/KEIPA/issues).
+If you have questions on how to use KGIPA, feel free to raise questions in the [discussions section](https://github.com/ShutaoChen97/KGIPA/discussions). If you identify any potential bugs, feel free to raise them in the [issuetracker](https://github.com/ShutaoChen97/KGIPA/issues).
 
-In addition, if you have any further questions about KEIPA, please feel free to contact us [**stchen@bliulab.net**]
+In addition, if you have any further questions about KGIPA, please feel free to contact us [**stchen@bliulab.net**]
 
 # 4 Citation
 
