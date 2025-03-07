@@ -165,9 +165,9 @@ class OutContextRepresentation(nn.Module):
         return bond_type_probs
 
 # %%
-class KEIPA(nn.Module):
+class KGIPA(nn.Module):
     def __init__(self):
-        super(KEIPA, self).__init__()
+        super(KGIPA, self).__init__()
         
         # Initialize sub-modules for intra-linguistic contextual representations
         self.in_context = InContextRepresentation()
