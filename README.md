@@ -184,7 +184,7 @@ If you find our work useful, please cite us at
   title={Knowledge-Enhanced Interpretable Pragmatic Analysis for Uncovering Peptide-Protein Pairwise Non-Covalent Mechanisms},
   author={Shutao Chen, Ke Yan, Xiangxiang Zeng, and Bin Liu},
   journal={submitted},
-  year={2024},
+  year={2025},
   publisher={}
 }
 
