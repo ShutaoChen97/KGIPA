@@ -1,11 +1,6 @@
 # KGIPA
 
 <div align="center">
-  
-  [![GitHub stars](https://badgen.net/github/stars/ShutaoChen97/KGIPA?_t=1681000000)](https://GitHub.com/ShutaoChen97/KGIPA/stargazers/)
-  [![GitHub forks](https://badgen.net/github/forks/ShutaoChen97/KGIPA/?_t=1681000000)](https://GitHub.com/ShutaoChen97/KGIPA/network/)
-  [![GitHub issues](https://badgen.net/github/issues/ShutaoChen97/KGIPA/?color=red)](https://GitHub.com/ShutaoChen97/KGIPA/issues/)
-  [![GitHub license](https://img.shields.io/github/license/ShutaoChen97/KGIPA.svg)](https://github.com/ShutaoChen97/KGIPA/blob/master/LICENSE)
 
 </div>
 
