@@ -103,7 +103,7 @@ tar -xvzf iupred2a.tar.gz
 Finally, test the installation of IUPred2A
 ```
 cd <INSTALL_DIR>
-python3 iupred2a P53_HUMAN.seq long
+python3 iupred2a.py P53_HUMAN.seq long
 ```
 **In addition, users need to move the `iupred2a.sh` script in `/tools/iupred2a/` to the IUPred2A installation path for KGIPA to call.**
 
