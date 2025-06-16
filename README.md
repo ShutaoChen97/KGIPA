@@ -22,7 +22,7 @@ conda activate kgipa
 ```
 
 ## 1.2 Requirements
-We recommend installing the environment using the provided environment.yaml file to ensure compatibility:
+We recommend installing the environment using the provided `environment.yaml` file to ensure compatibility:
 ```
 conda env update -f environment.yaml --prune
 ```
