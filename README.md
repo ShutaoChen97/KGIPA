@@ -60,7 +60,7 @@ Databases and model:
 ```
 nrdb90 [ncbi-blast Database](http://bliulab.net/KGIPA/static/download/nrdb90.tar.gz)
 uniclust30_2018_08 [HHsuite sequence Database](http://wwwuser.gwdg.de/~compbiol/uniclust/2018_08)
-model_res2net_202108 [Pre-trained network models of trRosetta](https://yanglab.nankai.edu.cn/trRosetta/download)
+model_res2net_202108 [Pre-trained network models of trRosetta](https://yanglab.qd.sdu.edu.cn/trRosetta/download/)
 ```
 
 **The default paths to all tools and databases are shown in config.yaml. You can change the paths to the tools and databases as needed by configuring conf.py.**
