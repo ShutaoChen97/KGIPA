@@ -68,7 +68,7 @@ uniclust30_2018_08 [HHsuite sequence Database](http://wwwuser.gwdg.de/~compbiol/
 model_res2net_202108 [Pre-trained network models of trRosetta](https://yanglab.qd.sdu.edu.cn/trRosetta/download/)
 ```
 
-**The default paths to all tools and databases are shown in config.yaml. You can change the paths to the tools and databases as needed by configuring conf.py.**
+**The default paths to all tools and databases are shown in `conf.py`. You can change the paths to the tools and databases as needed by configuring `conf.py`.**
 
 `SCRATCH-1D`, `IUPred2A`, `ncbi-blast`, `ProtT5`, and `trRosetta` are recommended to be configured as the system envirenment path. Your can follow these steps to install them:
 
