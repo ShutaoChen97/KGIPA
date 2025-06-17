@@ -110,7 +110,8 @@ Finally, test the installation of IUPred2A
 cd <INSTALL_DIR>
 python3 iupred2a.py P53_HUMAN.seq long
 ```
-**In addition, users need to move the `iupred2a.sh` script in `/tools/iupred2a/` to the IUPred2A installation path for KGIPA to call.**
+
+**In addition, users need to move the `iupred2a.sh` script in `/tools/iupred2a/` to the IUPred2A installation path for KGIPA to call. Please also make sure to modify the path to the Python script (`iupred2a.py`) within the `iupred2a.sh` file to reflect the absolute path of your IUPred2A installation. This is necessary for the script to function correctly.**
 
 ### 1.3.3 How to install ncbi-blast
 Download (For x64-linux, about 220M. More information, please see **https://blast.ncbi.nlm.nih.gov/doc/blast-help/downloadblastdata.html**)
