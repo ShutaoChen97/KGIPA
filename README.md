@@ -152,8 +152,19 @@ cd trRosettaX/
 ```
 
 Then, refer to the README file to install and configure it. **In addition, users need to move the `generate_msa.sh` and `predict.sh` scripts in `/tools/trRosettaX/` to the trRosettaX installation path for KGIPA to call.**
+Please also ensure the following modifications are made for proper execution:
 
-Please also ensure that both `generate_msa.sh` and `predict.sh` are executed within the Conda environment required by trRosettaX. This can be done by modifying the `export PATH=...` line in the scripts to point to the bin directory of the appropriate Conda environment, thereby activating the correct environment when the scripts are called.
+**1) Conda Environment:**
+Both `generate_msa.sh` and `predict.sh` need to run under the Conda environment required by trRosettaX.
+This can be achieved by modifying the `export PATH=...` line in each script to point to the bin directory of the corresponding Conda environment.
+
+**2) Database Path Configuration:**
+
+In `generate_msa.sh`, set the `-hhdb` parameter to the absolute path of the uniclust30_2018_08 database.
+
+In `predict.sh`, set the `-mdir` parameter to the absolute path of the model_res2net_202108 model directory.
+
+These changes are necessary to ensure KGIPA can correctly invoke trRosetta for structure prediction.
 
 
 ## 1.4 Inatsll KGIPA
