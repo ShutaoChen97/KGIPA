@@ -200,8 +200,8 @@ In addition, if you have any further questions about KGIPA, please feel free to 
 
 If you find our work useful, please cite us at
 ```
-@article{chen2024knowledge,
-  title={Knowledge-Enhanced Interpretable Pragmatic Analysis for Uncovering Peptide-Protein Pairwise Non-Covalent Mechanisms},
+@article{chen2025interpretable,
+  title={Interpretable Pragmatic Analysis with Knowledge-guided for Unraveling Peptide-protein Pairwise Non-covalent Mechanisms},
   author={Shutao Chen, Ke Yan, Xiangxiang Zeng, and Bin Liu},
   journal={submitted},
   year={2025},
