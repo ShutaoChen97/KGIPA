@@ -185,7 +185,7 @@ It takes 2 steps to predict peptide-protein binary interaction and peptide-prote
 (2) Then, run `run_predictor.py` to make prediction, including **pairwise non-covalent interaction** prediction and **non-covalent bond type** identification. It should be noted that `run_predictor.py` automatically calls the scripts `FeatureExtract.py`, and `PSSMExtract.py` to generate the multi-source isomerization features of peptides and proteins.
 ```
 conda activate kgipa
-python run_predictor.py -uip /example
+python run_predictor.py -uip example
 ```
 
 If you want to retrain based on your private dataset, find the original KGIPA model in `model.py`. The KGIPA source code we wrote is based on the Pytorch implementation and can be easily imported by instantiating it.
