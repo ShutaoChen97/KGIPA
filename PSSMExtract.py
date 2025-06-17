@@ -19,8 +19,10 @@ def run_simple_search(fd):
     outfmt_type = 5
     num_iter = 10
     evalue_threshold = 0.001
-    fasta_file = Profile_HOME + protein_name + '.fasta'
-    pssm_file = Profile_HOME + protein_name + '.pssm'
+    
+    fasta_file = os.path.join(Profile_HOME, protein_name + '.fasta')
+    pssm_file = os.path.join(Profile_HOME, protein_name + '.pssm')
+    
     if os.path.isfile(pssm_file):
         pass
     else:
