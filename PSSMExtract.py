@@ -101,14 +101,14 @@ def pssm_feature_extract(prolist, uip):
     global BLAST_DB
     BLAST = BLAST_FOLD
     BLAST_DB = BLAST_DB_FOLD
-
-    file_path = uip + 'Protein_Seq.fasta'
+    
+    file_path = os.path.join(uip, 'Protein_Seq.fasta')
     
     global Profile_HOME
     Profile_HOME = uip
     generateMSA(file_path)
     
-    proabb, prosequnique = Read_SeqID(uip + 'Protein_Seq.fasta')
+    proabb, prosequnique = Read_SeqID(file_path)
     
     protein_dense_feature_dict = {}
     for tmp in range(len(prosequnique)):
