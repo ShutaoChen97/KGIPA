@@ -153,7 +153,7 @@ cd trRosettaX/
 
 Then, refer to the README file to install and configure it. **In addition, users need to move the `generate_msa.sh` and `predict.sh` scripts in `/tools/trRosettaX/` to the trRosettaX installation path for KGIPA to call.**
 
-Please also ensure that both `generate_msa.sh` and `predict.sh` are executed within the Conda environment required by trRosettaX. This can be done by modifying the export PATH=... line in the scripts to point to the bin directory of the appropriate Conda environment, thereby activating the correct environment when the scripts are called.
+Please also ensure that both `generate_msa.sh` and `predict.sh` are executed within the Conda environment required by trRosettaX. This can be done by modifying the `export PATH=...` line in the scripts to point to the bin directory of the appropriate Conda environment, thereby activating the correct environment when the scripts are called.
 
 
 ## 1.4 Inatsll KGIPA
