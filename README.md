@@ -96,6 +96,7 @@ cd <INSTALL_DIR>/doc
 
 > **Note:** If your computer has less than 4 cores, replace 4 by 1 in the command line above.
 
+**In addition, users need to move the `SCRATCH.sh` script in `/tools/SCRATCH-1D_1.2/` to the `bin/` directory under the SCRATCH-1D_1.2 installation path for KGIPA to call.**
 
 ### 1.3.2 How to install IUPred2A
 For download and installation of IUPred2A, please refer to **https://iupred2a.elte.hu/download_new**. It should be noted that this automation service is **only applicable to academic users.** For business users, please contact the original authors for authorization. 
