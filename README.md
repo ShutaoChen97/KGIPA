@@ -169,7 +169,7 @@ In `predict.sh`, set the `-mdir` parameter to the absolute path of the model_res
 These changes are necessary to ensure KGIPA can correctly invoke trRosetta for structure prediction.
 
 
-## 1.4 Inatsll KGIPA
+## 1.4 Install KGIPA
 To install from the development branch run
 ```
 git clone git@github.com:ShutaoChen97/KGIPA.git
