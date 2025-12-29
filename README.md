@@ -4,7 +4,8 @@
 
 </div>
 
-Understanding the mechanisms underlying peptide-protein interactions is crucial for uncovering cellular signaling processes and advancing targeted therapeutic development. Despite extensive research, accurately predicting peptide-protein interactions and providing site-specific biological annotations remains challenging due to the diversity of molecular modalities and the complexity of their associations. Here, we propose **interpretable pragmatic analysis with knowledge-guided (KGIPA)**, a method that applies the linguistic concept of pragmatic analysis to life sciences research. KGIPA first integrates multi-modal features of single molecules through intra-linguistic contextual representation and constructs residue-level interaction maps of peptide-protein pairs through extra-linguistic contextual representation. Furthermore, the knowledge-guided module incorporates prior knowledge to promote coordinated interactions across various non-covalent bond types. Finally, using a multi-task learning framework, KGIPA simultaneously predicts residue-level pairwise non-covalent interactions and their specific non-covalent bond types, enabling biological sequence pragmatic analysis. Experiments on multiple independent test datasets demonstrate that KGIPA achieves superior overall performance compared to state-of-the-art baseline methods and provides interpretable insights into the prediction results. Moreover, evaluations in other similar biological tasks indicate that KGIPA's method for biological sequence pragmatic analysis is highly generalizable, **establishing a new paradigm for AI-driven life science research**.
+Understanding peptide-protein interactions is vital for decoding cellular signaling and developing targeted therapies. However, the complexity of multi-molecular associations and diverse non-covalent interactions make accurate prediction and site-specific annotation challenging. Here, we propose **KGIPA, a knowledge-guided pragmatic analysis framework** that incorporates pragmatic concepts from natural language into life science, capturing the influence of biological environments on non-covalent interactions. KGIPA integrates intra- and extra-linguistic contextual information to combine multimodal single-molecule features and build residue-level interaction maps. It also uses biological prior knowledge to coordinate various non-covalent interaction types. Benchmark tests demonstrate KGIPA outperforms the state-of-the-art methods in evaluating molecular binding, including protein and peptide binding residues and residue-pair interactions. Furthermore, KGIPA shows strong performance in both peptide-protein binding affinity prediction and virtual screening of peptide therapeutics. The promising performance of KGIPA indicates the generalizability of the knowledge-guided pragmatic analysis framework, which **offers a new computational approach for AI-driven life science research**.
+
 
 **Given the complexity and potential instability of individual environment configurations, we strongly recommend using the upgraded online prediction server of KGIPA, available at **http://106.63.6.174:21380/kgipa/**.
 The previous version at http://bliulab.net/KGIPA/ remains accessible as well.**
@@ -201,9 +202,9 @@ In addition, if you have any further questions about KGIPA, please feel free to 
 
 If you find our work useful, please cite us at
 ```
-@article{chen2025interpretable,
-  title={Interpretable Pragmatic Analysis with Knowledge-guided for Unraveling Peptide-protein Pairwise Non-covalent Mechanisms},
-  author={Shutao Chen, Ke Yan, Xiangxiang Zeng, and Bin Liu},
+@article{chen2025pragmatic,
+  title={Pragmatic Analysis with Knowledge-guided for Unraveling Peptide-protein Pairwise Non-covalent Mechanisms},
+  author={Shutao Chen, Ke Yan, Jiangyi Shao, Xiangxiang Zeng, and Bin Liu},
   journal={submitted},
   year={2025},
   publisher={}
