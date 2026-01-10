@@ -1,4 +1,4 @@
-<img width="432" height="235" alt="image" src="https://github.com/user-attachments/assets/0590b89e-06b9-46f0-81b4-0c2615b4b44d" /># KGIPA
+# KGIPA
 
 <div align="center">
 
