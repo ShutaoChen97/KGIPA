@@ -4,10 +4,10 @@
 
 </div>
 
-Natural language processing provides a systematic route for studying the functions of biological sequences such as proteins. However, modeling residue-level interactions remains challenging due to their intrinsic complexity and environment dependence. In this context, we introduce **KGIPA, a deep learning framework based on pragmatic analysis for inferring peptide-protein interactions**. KGIPA employs graph neural networks and a bilinear network to represent intra- and extra-linguistic contexts, thereby integrating multimodal molecular features and capturing environment-dependent interaction patterns. It further adopts a knowledge-guided strategy to coordinate diverse types of non-covalent bonds, revealing the non-covalent binding mechanisms between peptides and proteins. The model consistently outperforms state-of-the-art methods across cross-validation, unseen evaluation, and multi-label assessments, and demonstrates robust performance in peptide-protein binding affinity prediction and virtual screening of peptide-based therapeutics. **This work opens up opportunities for utilizing deep learning to infer complex molecular interactions**.
+Peptide-protein interactions (PepPIs) are pivotal for cellular regulation and therapeutic development, yet modeling their residue-level mechanisms remains a formidable challenge due to their intrinsic complexity and profound environment dependence. In this context, we introduce **KGIPA, a deep learning framework based on pragmatic analysis—a linguistic concept for decoding meaning from context—to decipher these non-covalent interaction mechanisms**. KGIPA employs graph neural networks and a bilinear network to represent intra-linguistic contexts (multimodal representations of individual molecules) and extra-linguistic contexts (the pairwise binding environment), thereby enabling a comprehensive pragmatic analysis of PepPIs. Furthermore, it adopts a knowledge-guided strategy to coordinate diverse non-covalent bond types, effectively revealing the underlying binding logic. The model consistently outperforms state-of-the-art methods across cross-validation, unseen evaluation, and multi-label assessments. Crucially, wet-lab experiments validated the framework's reliability, showing a high consistency between predicted binding behaviors and measured results in real-world virtual screening scenarios, demonstrating the model's potential to accelerate peptide drug development. **This work establishes pragmatic analysis as a powerful paradigm for decoding the complex language of molecular interactions.**
 
-**Given the complexity and potential instability of individual environment configurations, we strongly recommend using the upgraded online prediction server of KGIPA, available at **http://106.63.6.174:21380/kgipa/**.
-The previous version at http://bliulab.net/KGIPA/ remains accessible as well.**
+
+**Given the complexity and potential instability of individual environment configurations, we strongly recommend using the upgraded online prediction server of KGIPA, available at **http://bliulab.net/kgipa**.
 
 ![Model](/imgs/Model.png)
 
@@ -202,7 +202,7 @@ In addition, if you have any further questions about KGIPA, please feel free to 
 If you find our work useful, please cite us at
 ```
 @article{
-  title={A deep learning framework based on pragmatic analysis for inferring peptide-protein non-covalent interactions},
+  title={A deep learning framework based on pragmatic analysis for deciphering peptide-protein non-covalent interaction mechanisms},
   author={Shutao Chen, Ke Yan, Jiangyi Shao, Xiangxiang Zeng, and Bin Liu},
   journal={submitted},
   year={2026},
