@@ -221,12 +221,12 @@ def secondary_structure_feature_extract(seqlist, uip, seqtype, seq_max_length):
             if keyuse not in AminoAcidDic_SSPro:
                 AminoAcidDic_SSPro[keyuse] = embeddinguse * 3 - (2 - tmp2)
 
-    while os.path.isfile(os.path.join(uip, 'Protein.out.ss')) == False:
+    while os.path.isfile(os.path.join(uip, seqtype+'.out.ss')) == False:
         time.sleep(100)
         
-    set_permissions(os.path.join(uip, 'Protein.out.ss'))
+    set_permissions(os.path.join(uip, seqtype+'.out.ss'))
     id2, seq = read_seq_and_index(os.path.join(seq_dir))
-    id1, sspro = read_seq_and_index(os.path.join(uip, 'Protein.out.ss'))
+    id1, sspro = read_seq_and_index(os.path.join(uip, seqtype+'.out.ss'))
 
     ss_feature_dict = {}
     for tmp1 in range(len(seq)):
