@@ -276,7 +276,7 @@ def pretrain_feature_extract(seqlist, uip, seqtype, seq_max_length):
         sequence_Example = re.sub(r"[UZOB]", "X", sequence_Example)
         encoded_input = tokenizer(sequence_Example, return_tensors='pt')
         output = model(**encoded_input)
-        result = output[0][0][1:seqlen+1]
+        result = output[0][0][:seqlen]
         seq_tmp_feature = result.detach().numpy()
         if len(seq_tmp_feature) < seq_max_length:
             diff = seq_max_length - len(seq_tmp_feature)
