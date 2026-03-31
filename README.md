@@ -203,9 +203,9 @@ If you find our work useful, please cite us at
 @article{
   title={Pragmatic analysis with knowledge-guided for unraveling peptide-protein pairwise non-covalent mechanisms},
   author={Shutao Chen, Ke Yan, Jiangyi Shao, Xiangxiang Zeng, and Bin Liu},
-  journal={submitted},
+  journal={bioRxiv},
   year={2026},
-  publisher={}
+  doi={https://doi.org/10.64898/2026.02.12.705667}
 }
 
 ```
